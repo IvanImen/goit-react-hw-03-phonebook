@@ -1,9 +1,10 @@
 import { ContactsListItem } from 'components';
 import React from 'react';
+import { ListStyled } from './ContactsList.styled';
 
 export const ContactsList = ({ contacts, deleteContact }) => {
   return (
-    <ul>
+    <ListStyled>
       {contacts.map(({ id, name, number }) => {
         return (
           <ContactsListItem
@@ -15,6 +16,6 @@ export const ContactsList = ({ contacts, deleteContact }) => {
           />
         );
       })}
-    </ul>
+    </ListStyled>
   );
 };

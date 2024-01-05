@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import React, { Component } from 'react';
 import { ContactForm, ContactsList, Filter } from 'components';
+import { ContainerStyled, SectionStyled, TitleStyled } from './AppStyled';
 
 const LOCAL_STORAGE_KEY = 'contacts';
 export class App extends Component {
@@ -57,16 +58,18 @@ export class App extends Component {
     });
 
     return (
-      <div>
-        <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.addContact} />
-        <h2>Contacts</h2>
-        <Filter onChange={this.handleFilterChange} value={filter} />
-        <ContactsList
-          contacts={filteredContacts}
-          deleteContact={this.deleteContact}
-        />
-      </div>
+      <SectionStyled>
+        <ContainerStyled>
+          <TitleStyled>Phonebook</TitleStyled>
+          <ContactForm onSubmit={this.addContact} />
+          <TitleStyled>Contacts</TitleStyled>
+          <Filter onChange={this.handleFilterChange} value={filter} />
+          <ContactsList
+            contacts={filteredContacts}
+            deleteContact={this.deleteContact}
+          />
+        </ContainerStyled>
+      </SectionStyled>
     );
   }
 }
